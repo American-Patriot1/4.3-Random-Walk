@@ -1,21 +1,20 @@
 import java.util.Random;
-public class RandomWalk {
+public class DrunkenWalk {
     private int x;
     private int y;
     private int maxSteps;
     private int currentSteps;
     private int squareRadius;
     private int fellOff;
+    private int amtDrunks;
 
 
-    public RandomWalk (){
-    }
-    public RandomWalk (int max, int edge){
+    public DrunkenWalk (int max, int edge, int drunks){
         maxSteps=max;
         squareRadius=edge;
-        fellOff=0;
+        amtDrunks=drunks;
     }
-    public RandomWalk (int max, int edge, int startX, int startY){
+    public DrunkenWalk (int max, int edge, int startX, int startY){
         maxSteps=max;
         squareRadius=edge;
         x=startX;
@@ -74,6 +73,13 @@ public class RandomWalk {
                 }
                 walk();
             }
+        }
+    }
+    void drunkWalk(){
+        for(int i = 0; i < amtDrunks;i++){
+            RandomWalk tempWalk = new RandomWalk(maxSteps,maxSteps);
+            tempWalk.walk();
+            System.out.println(tempWalk);
         }
     }
 
